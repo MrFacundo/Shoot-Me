@@ -1,5 +1,20 @@
+<%= render "shared/navbar"%>
+
 <h1>All our locations:</h1>
 
-<% @locations.each do |location| %>
-  <%= location.name %>
-<% end  %>
+<div class="index-container">
+  <% @locations.each do |location| %>
+    <div class="card-trip">
+      <img src="https://images.unsplash.com/photo-1493246318656-5bfd4cfb29b8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+      <div class="card-trip-infos">
+        <div>
+          <h2>location.name</h2>
+          <p>location.address</p>
+        </div>
+        <h2 class="card-trip-pricing">location.daily_fee €</h2>
+      </div>
+    </div>
+  <% end  %>
+</div>
+
+<%= render "shared/footer" %>
