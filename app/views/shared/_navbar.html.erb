@@ -9,12 +9,18 @@
   </form>
   <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-2 mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">SignUp <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Log In</a>
-      </li>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Sign Out",  destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure you want to sign out?' },  class: "nav-link"  %>
+        </li>
+      <% else %>
+        <li class="nav-item active">
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log In", new_user_session_path, class: "nav-link"  %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
