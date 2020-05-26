@@ -5,5 +5,4 @@ class Location < ApplicationRecord
   validates :name, :address, :description, :daily_fee, :type, presence: true
   validates :type, presence: true, inclusion: { in: TYPE }
 
-
 end
