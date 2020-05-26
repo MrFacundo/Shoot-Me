@@ -15,12 +15,8 @@ User.create(first_name: "Jane", last_name: "Doe", email: "jane@mail.com", passwo
 User.create(first_name: "Louis", last_name: "XIV", email: "sun@king.fr", password: "123456")
 
 
-
-
 Location.create(name: "Beautiful House Boat", address: "Berlin", description: "One room house boat on the Spree with gorgeous view of Warschauer Brücke", daily_fee: 300, style: "Flat", user_id: 1)
 
 Location.create(name: "Loft in Wedding", address: "Berlin", description: "Big loft in old warehouse complex in Wedding", daily_fee: 2000, style: "Flat", user_id: 3)
-
-Location.create(name: "Private stage", address: "Köln", description: "Practice stage in amateur theatre", daily_fee: 300, style: "Theatre", user_id: 2)
 
 Location.create(name: "Private stage", address: "Köln", description: "Practice stage in amateur theatre", daily_fee: 300, style: "Theatre", user_id: 2)
