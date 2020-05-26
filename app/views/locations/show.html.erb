@@ -34,7 +34,8 @@
     <div class="col-12 col-lg-4">
       <div class="border rounded p-4 mt-3">
         <h2>Book this location</h2>
-        <form action="/">
+        <%= link_to 'Make a booking', new_location_booking_path(@location) %>
+        <%# <form action="/">
           <div class="form-group">
             <label for="arrival">Arrival</label>
             <input type="date" id="arrival" class="form-control">
@@ -44,7 +45,7 @@
             <input type="date" id="departure" class="form-control">
           </div>
             <input type="submit" value="Book now" class="form-control btn btn-info">
-        </form>
+        </form> %>
       </div>
     </div>
 
