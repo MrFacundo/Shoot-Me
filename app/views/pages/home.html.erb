@@ -1,4 +1,3 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
-<%= link_to "sign-out".html_safe, destroy_user_session_path(current_user) , method: :delete , data: { confirm: "Are you sure you want to sign-out?" }%>
+<%= render "shared/navbar"%>
+<%= render "shared/banner"%>
