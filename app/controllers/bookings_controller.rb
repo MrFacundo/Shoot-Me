@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.location = @location
     @booking.user = current_user
     if @booking.save
-      redirect_to locations_path, notice: 'Booking was successfully created.'
+      redirect_to bookings_path, notice: 'Booking was successfully created.'
         #path needs to be updated to redirect to booking show
     else
       render :new
