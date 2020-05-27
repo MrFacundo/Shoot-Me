@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path, notice: 'Booking was successfully created.'
         #path needs to be updated to redirect to booking show
+        
     else
       render :new
     end

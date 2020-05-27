@@ -23,6 +23,7 @@ class LocationsController < ApplicationController
       render :new
     end
   end
+  #<%# form embedded %>
 
   private
 
