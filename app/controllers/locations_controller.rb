@@ -2,7 +2,13 @@ class LocationsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @locations = Location.all
+    @locations = Location.geocoded
+    @markers = @locations.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude
+      }
+    end
   end
 
   def show
