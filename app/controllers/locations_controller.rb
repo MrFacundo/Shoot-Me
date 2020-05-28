@@ -2,7 +2,12 @@ class LocationsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @locations = Location.geocoded
+    # collecting address input from user, using query search
+    search = params[:search][:query]
+    # comparing search with addresses saved in location instances
+    @locations = Location.search_by_address(search)
+    # applying geocoder to show addresses on map
+    @locations.geocoded
     @markers = @locations.map do |location|
       {
         lat: location.latitude,
