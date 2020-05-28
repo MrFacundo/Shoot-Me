@@ -9,8 +9,9 @@
     <div class="card-product-infos">
       <h2><%= link_to b.location.name, booking_path(b) %></h2>
       <p>from: <strong><%= b.start_date %> </strong> to <strong><%= b.end_date %></strong></p>
+       <p><strong>Hosted by</strong> <%= b.location.user.first_name %>
       </div>
-      <!-- #status should be here -->
+        <!-- #status should be here -->
     </div>
     <br>
   <% end %>
