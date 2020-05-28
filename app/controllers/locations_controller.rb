@@ -24,7 +24,7 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     @location.user = current_user
     if @location.save
-      redirect_to root_path
+      redirect_to location_path(@location)
     else
       render :new
     end
