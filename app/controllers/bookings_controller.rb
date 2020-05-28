@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path, notice: 'Booking was successfully created.'
         #path needs to be updated to redirect to booking show
-        
+
     else
       render :new
     end
@@ -21,6 +21,11 @@ class BookingsController < ApplicationController
   def index
     @user = current_user
     @bookings = @user.bookings
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @location = @booking.location
   end
 
   private
