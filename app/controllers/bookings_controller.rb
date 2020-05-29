@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     @booking.total_price = t_price(@booking)
     @booking.save
-    redirect_to bookings_path
+    redirect_to booking_path(@booking)
   end
 
   private
