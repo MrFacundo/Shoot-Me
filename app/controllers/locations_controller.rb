@@ -33,7 +33,7 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
     @location.user = current_user
     if @location.save
-      redirect_to location_path(@location)
+      redirect_to location_path(@location), notice: 'Your location has been created!'
     else
       render :new
     end
