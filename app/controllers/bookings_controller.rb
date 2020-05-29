@@ -46,10 +46,11 @@ class BookingsController < ApplicationController
     @booking.total_price = t_price(@booking)
     @booking.save
     if @booking.save
-      redirect_to bookings_path, notice: 'Booking was successfully updated.'
+      redirect_to booking_path(@booking) notice: 'Booking was successfully updated.'
       else
     render :update
     end
+
   end
 
   private
