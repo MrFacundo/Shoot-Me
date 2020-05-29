@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to bookings_path, notice: 'Your booking has been cancelled'
   end
 
   def edit
@@ -45,7 +45,11 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
     @booking.total_price = t_price(@booking)
     @booking.save
-    redirect_to bookings_path
+    if @booking.save
+      redirect_to bookings_path, notice: 'Booking was successfully updated.'
+      else
+    render :update
+    end
   end
 
   private
