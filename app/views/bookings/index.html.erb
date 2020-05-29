@@ -1,9 +1,9 @@
 <div class="container mt-4">
-  <div class="row">
+  <div class="row mt-8">
     <div class="col-sm-8 offset-sm-2">
-      <h2 class="mb-4 text-center">Bookings</h2>
+      <h2 class="mb-4 text-center">My bookings</h2>
       <% @bookings.each do |b| %>
-        <div class="card-product">
+        <div class="card-product mt-2">
           <% if b.location.photos.attached? %>
             <%= cl_image_tag b.location.photos[0].key %>
           <% else %>
