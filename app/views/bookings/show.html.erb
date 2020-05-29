@@ -41,7 +41,6 @@
           <p><strong> Dates: </strong><%= @booking.start_date %> - <%= @booking.end_date  %></p>
           <p><strong>Total price: </strong> € <%= @booking.total_price%></p>
         </div>
-        <br>
         <div class="d-flex justify-content-center ">
           <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, booking_path(@booking), method: :delete, alert: 'text', style: "color: #FFD64B; font-size: 30px", class: "p-3" %>
           <%= link_to "<i class='fas fa-edit'></i>".html_safe, edit_booking_path(@booking), style: "color: #FFD64B; font-size: 30px", class: "p-3" %>
