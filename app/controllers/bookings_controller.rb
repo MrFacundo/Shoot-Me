@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path, notice: 'Booking was successfully created.'
         #path needs to be updated to redirect to booking show
-
     else
       render :new
     end
@@ -22,6 +21,7 @@ class BookingsController < ApplicationController
   def index
     @user = current_user
     @bookings = @user.bookings
+    @locations = @user.locations
   end
 
   def show
@@ -46,11 +46,10 @@ class BookingsController < ApplicationController
     @booking.total_price = t_price(@booking)
     @booking.save
     if @booking.save
-      redirect_to booking_path(@booking) notice: 'Booking was successfully updated.'
-      else
-    render :update
+      redirect_to booking_path(@booking), notice: 'Booking was successfully updated.'
+    else
+      render :update
     end
-
   end
 
   private
