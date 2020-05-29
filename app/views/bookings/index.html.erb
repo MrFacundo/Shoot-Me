@@ -1,20 +1,39 @@
-<div class="container mt-3">
-
-  <h2 class="mb-3">My bookings</h2>
-  <% @bookings.each do |b| %>
-    <div class="card-product">
-      <% if b.location.photos.attached? %>
-        <%= cl_image_tag b.location.photos[0].key %>
-      <% else %>
-        <img src="https://images.unsplash.com/photo-1464890100898-a385f744067f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
-      <% end %>
-      <div class="card-product-infos">
-        <h2><%= link_to b.location.name, booking_path(b), class: "stretched-link", style: "text-decoration: none; color: black" %></h2>
-        <p>from: <strong><%= b.start_date %> </strong> to <strong><%= b.end_date %></strong></p>
-         <p><strong>Hosted by</strong> <%= b.location.user.first_name %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <h2 class="mb-4 text-center">Bookings</h2>
+      <% @bookings.each do |b| %>
+        <div class="card-product">
+          <% if b.location.photos.attached? %>
+            <%= cl_image_tag b.location.photos[0].key %>
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1464890100898-a385f744067f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= link_to b.location.name, booking_path(b), class: "stretched-link", style: "text-decoration: none; color: black" %></h2>
+            <p>from: <strong><%= b.start_date %> </strong> to <strong><%= b.end_date %></strong></p>
+            <p><strong>Hosted by</strong> <%= b.location.user.first_name %>
+          </div>
       </div>
-          <!-- #status should be here -->
+      <% end %>
     </div>
-  <% end %>
+  </div>
+  
+  <div class="row mt-4">
+    <div class="col-sm-8 offset-sm-2">
+      <h2 class="mb-4 text-center">My locations</h2>
+      <% @locations.each do |b| %>
+        <div class="card-product mt-2">
+          <% if b.photos.attached? %>
+            <%= cl_image_tag b.photos[0].key %>
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1464890100898-a385f744067f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= link_to b.name, booking_path(b), class: "stretched-link", style: "text-decoration: none; color: black" %></h2>
+            <p> <%= b.description %></p>
+          </div>
+      </div>
+      <% end %>
+    </div>
 </div>
-
