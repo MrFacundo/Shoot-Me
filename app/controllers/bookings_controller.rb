@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     @location = Location.find(params[:location_id])
     @booking.location = @location
     @booking.user = current_user
+    @booking.total_price = t_price(@booking)
     if @booking.save
       redirect_to bookings_path, notice: 'Booking was successfully created.'
         #path needs to be updated to redirect to booking show
@@ -42,6 +43,8 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
+    @booking.total_price = t_price(@booking)
+    @booking.save
     redirect_to bookings_path
   end
 
@@ -49,5 +52,10 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def t_price(booking)
+    total = (@booking.end_date - @booking.start_date).to_i * @booking.location.daily_fee
+    total
   end
 end
